@@ -82,3 +82,4 @@ def test_invalid_authentication():
     response = requests.post(url, headers=headers)
 
     assert response.status_code == 403, response.content
+
