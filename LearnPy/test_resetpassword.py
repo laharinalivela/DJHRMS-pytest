@@ -12,7 +12,6 @@
 # def test_forgot_password_successful():
 #     email = 'lahari@wmltech.com'
 #
-#     # Assuming forgot_password returns a response object
 #     response = forgot_password(email)
 #
 #     assert response.status_code == 200
@@ -28,22 +27,17 @@
 #
 # @pytest.fixture
 # def uidb64():
-#     # You can generate or provide a sample uidb64 for testing
 #     return 'NA'
 #
 # @pytest.fixture
 # def token():
-#     # You can generate or provide a sample token for testing
 #     return 'bxyqr7-f1316c92af773f300db9d71c283a77ac'
 #
 # def test_reset_password_confirm_successful(uidb64, token):
-#     # Get the reset password URL
 #     reset_password_url = RESET_CONFIRM_URL.format(uidb64=uidb64, token=token)
 #
-#     # Print or use the reset password URL
 #     print(f"Reset Password URL: {reset_password_url}")
 #
-#     # Mock the HTTP request to the reset password URL (assuming it returns a success response)
 #     response = requests.post(reset_password_url, json={'password': 'Wml@1234', 'confirm_password': 'Wml@1234'})
 #     assert response.status_code == 200
 import requests
@@ -64,12 +58,10 @@ def reset_password_confirm(uidb64, token, password, confirm_password):
 
 @pytest.fixture
 def uidb64():
-    # You can generate or provide a sample uidb64 for testing
     return 'NA'
 
 @pytest.fixture
 def token():
-    # You can generate or provide a sample token for testing
     return 'by0v9l-a9bd58b09087326284ad3bc3068b934e'
 
 def test_forgot_password_successful():
@@ -88,6 +80,4 @@ def test_reset_password_confirm_successful(uidb64, token):
 def test_forgot_password_invalid_email():
     invalid_email = 'lahari1@wmltech.com'
     response = forgot_password (invalid_email)
-    assert response.status_code == 200  # Assuming the API returns 400 for invalid email
-    # assert "error" in response.json ( )
-    # Assuming the response contains an error message
+    assert response.status_code == 200

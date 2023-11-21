@@ -2,7 +2,6 @@ import requests
 import pytest
 from decouple import config
 
-# Replace 'your_login_url' with the actual URL of your login page
 LOGIN_URL = 'https://dev-api.djhrm.com/api/auth/login/'
 
 

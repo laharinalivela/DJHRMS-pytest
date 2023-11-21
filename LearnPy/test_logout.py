@@ -31,8 +31,6 @@ def test_logout_failure_invalid_token():
 # @pytest.fixture
 #
 # def test_logout_no_token():
-#     # No token provided in headers
 #     response = requests.post(BASE_URL)
-#
 #     assert response.status_code == 200
 #     assert response.json()["detail"] == "Logged out successfully"
