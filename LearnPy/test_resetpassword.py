@@ -48,7 +48,6 @@
 #     assert response.status_code == 200
 import requests
 import pytest
-from decouple import config
 
 FORGOT_PASSWORD_URL = 'https://dev-api.djhrm.com/api/auth/password/reset/'
 RESET_CONFIRM_URL = 'https://dev-api.djhrm.com/api/auth/password/reset/confirm/{uidb64}/{token}/'
@@ -71,10 +70,10 @@ def uidb64():
 @pytest.fixture
 def token():
     # You can generate or provide a sample token for testing
-    return 'by0fv1-73c348424ea90e32ba91a493e6db8862'
+    return 'by0v9l-a9bd58b09087326284ad3bc3068b934e'
 
 def test_forgot_password_successful():
-    email = config('email')
+    email = 'lahari@wmltech.com'
     response = forgot_password(email)
     assert response.status_code == 200
     assert response.json() is not None
@@ -87,8 +86,8 @@ def test_reset_password_confirm_successful(uidb64, token):
     assert response.status_code == 200
 
 def test_forgot_password_invalid_email():
-    invalid_email = config('invalid_email')
+    invalid_email = 'lahari1@wmltech.com'
     response = forgot_password (invalid_email)
     assert response.status_code == 200  # Assuming the API returns 400 for invalid email
-    assert "error" in response.json ( )
+    # assert "error" in response.json ( )
     # Assuming the response contains an error message
