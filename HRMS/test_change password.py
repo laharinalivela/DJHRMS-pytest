@@ -55,9 +55,13 @@ def test_change_valid_credentials(login_user):
     headers = {'Authorization': f"Token {login_user['token']}"}
     response = requests.post(url, headers=headers, json=data)
     assert response.status_code == 200, response.content
-def test_invalid_authentication():
+def test_invalid_token():
     token = "wyudsbxawbclca"
     headers = {'Authorization': f"Token {token}"}
     response = requests.post(url, headers=headers)
     assert response.status_code == 403, response.content
-
+def test_after_change_password_login_user():
+    login_url = "https://dev-api.djhrm.com/api/auth/login/"
+    data = {'email': config('email'), 'password': config('password')}
+    response = requests.post(login_url, data=data)
+    return {'email': config('email'), 'password': config('password'), 'token': response.json()['key']}
