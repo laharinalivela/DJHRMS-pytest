@@ -4,6 +4,7 @@ import pytest
 FORGOT_PASSWORD_URL = 'https://dev-api.djhrm.com/api/auth/password/reset/'
 RESET_CONFIRM_URL = 'https://dev-api.djhrm.com/api/auth/password/reset/confirm/{uidb64}/{token}/'
 
+
 def forgot_password(email):
     response = requests.post(FORGOT_PASSWORD_URL, json={'email': email})
     return response
@@ -28,6 +29,7 @@ def reset_password_confirm(uidb64, token, password, confirm_password):
 @pytest.fixture
 def uidb64():
     return 'NA'
+
 
 @pytest.fixture
 def token():
